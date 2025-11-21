@@ -1,0 +1,379 @@
+/* Main Container */
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 24px 80px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Header Section */
+.app-header {
+  text-align: center;
+  margin-bottom: 72px;
+  position: relative;
+  padding-bottom: 24px;
+}
+
+.app-header::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #d1d5db, transparent);
+}
+
+.app-title {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 16px;
+  letter-spacing: -0.03em;
+}
+
+.app-subtitle {
+  font-size: 1.125rem;
+  color: #6b7280;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+/* Cards Grid */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  width: 100%;
+  position: relative;
+}
+
+.cards-grid::before {
+  content: '';
+  position: absolute;
+  top: -40px;
+  left: -40px;
+  right: -40px;
+  bottom: -40px;
+  background: radial-gradient(circle at center, rgba(209, 213, 219, 0.15), transparent 70%);
+  border-radius: 32px;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Base Card Styles */
+.ai-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 36px 24px 32px;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: transform 180ms ease, box-shadow 180ms ease;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.12);
+  position: relative;
+  outline: none;
+}
+
+.ai-card:hover,
+.ai-card:focus-visible {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.18);
+}
+
+.ai-card--recommended {
+  box-shadow: 0 4px 16px rgba(59, 130, 246, 0.25);
+}
+
+.ai-card--recommended:hover,
+.ai-card--recommended:focus-visible {
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: 0 16px 40px rgba(59, 130, 246, 0.3);
+}
+
+.ai-card:focus-visible {
+  outline: 2px solid #3b82f6;
+  outline-offset: 4px;
+}
+
+/* Card Badge */
+.card-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: rgba(255, 255, 255, 0.95);
+  color: #1f2937;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+}
+
+/* Card Logo */
+.card-logo-container {
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.card-logo {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+}
+
+/* Card Text */
+.card-title {
+  font-size: 1.375rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  text-align: center;
+  letter-spacing: -0.01em;
+}
+
+.card-description {
+  font-size: 0.9375rem;
+  opacity: 0.9;
+  text-align: center;
+  margin-bottom: 28px;
+  line-height: 1.6;
+  color: inherit;
+}
+
+/* Card Button */
+.card-button {
+  padding: 11px 36px;
+  border-radius: 24px;
+  border: none;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 180ms ease;
+  margin-top: auto;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.card-button:hover {
+  transform: scale(1.05);
+}
+
+/* ChatGPT Card */
+.card--chatgpt {
+  background: #343541;
+  color: #ececf1;
+}
+
+.card--chatgpt .card-description {
+  color: #d1d5db;
+}
+
+.card--chatgpt .card-logo-container {
+  background-color: rgba(16, 163, 127, 0.15);
+}
+
+.card--chatgpt .card-button {
+  background-color: #10a37f;
+  color: #ffffff;
+}
+
+.card--chatgpt .card-button:hover {
+  background-color: #0d8c6a;
+}
+
+/* Claude Card */
+.card--claude {
+  background: linear-gradient(135deg, #fef4ea, #f7e0c4);
+  color: #1f2937;
+  position: relative;
+}
+
+.card--claude::before {
+  content: '';
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: rgba(245, 124, 0, 0.15);
+  z-index: 0;
+}
+
+.card--claude .card-logo-container {
+  background-color: rgba(245, 124, 0, 0.1);
+  position: relative;
+  z-index: 1;
+}
+
+.card--claude .card-button {
+  background-color: #f57c00;
+  color: #ffffff;
+  position: relative;
+  z-index: 1;
+}
+
+.card--claude .card-button:hover {
+  background-color: #e06900;
+}
+
+.card--claude .card-title,
+.card--claude .card-description {
+  position: relative;
+  z-index: 1;
+}
+
+/* Perplexity Card */
+.card--perplexity {
+  background: radial-gradient(circle at top, #242850, #0a0e1f);
+  color: #f3f4f6;
+}
+
+.card--perplexity .card-description {
+  color: #e5e7eb;
+}
+
+.card--perplexity .card-logo-container {
+  background-color: rgba(51, 92, 255, 0.15);
+}
+
+.card--perplexity .card-button {
+  background-color: #335cff;
+  color: #ffffff;
+  border: 1px solid rgba(51, 92, 255, 0.3);
+}
+
+.card--perplexity .card-button:hover {
+  background-color: #2a4dd9;
+  box-shadow: 0 0 16px rgba(51, 92, 255, 0.4);
+}
+
+/* Gemini Card */
+.card--gemini {
+  background: linear-gradient(135deg, #0d1428, #1a35d1);
+  color: #f3f4f6;
+}
+
+.card--gemini .card-description {
+  color: #e5e7eb;
+}
+
+.card--gemini .card-logo-container {
+  background-color: rgba(59, 130, 246, 0.15);
+}
+
+.card--gemini .card-button {
+  background-color: #4f8af5;
+  color: #ffffff;
+}
+
+.card--gemini .card-button:hover {
+  background-color: #3b75db;
+  box-shadow: 0 0 20px rgba(79, 138, 245, 0.5);
+}
+
+/* Microsoft Copilot Card */
+.card--copilot {
+  background: linear-gradient(135deg, #0f172a, #2563eb);
+  color: #f9fafb;
+}
+
+.card--copilot .card-logo-container {
+  background-color: rgba(37, 99, 235, 0.15);
+}
+
+.card--copilot .card-button {
+  background-color: #60a5fa;
+  color: #ffffff;
+}
+
+.card--copilot .card-button:hover {
+  background-color: #3b82f6;
+}
+
+/* Grok Card */
+.card--grok {
+  background: linear-gradient(135deg, #0a0f1e, #151b2e);
+  color: #f3f4f6;
+  border: 1px solid rgba(20, 244, 201, 0.3);
+}
+
+.card--grok .card-description {
+  color: #e5e7eb;
+}
+
+.card--grok .card-logo-container {
+  background: linear-gradient(135deg, rgba(20, 244, 201, 0.2), rgba(236, 72, 153, 0.2));
+}
+
+.card--grok .card-button {
+  background: linear-gradient(135deg, #14f4c9, #ec4899);
+  color: #ffffff;
+  font-weight: 700;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.card--grok .card-button:hover {
+  box-shadow: 0 0 24px rgba(20, 244, 201, 0.5);
+  filter: brightness(1.15);
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+  .cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  .app-title {
+    font-size: 2.25rem;
+  }
+  
+  .app-subtitle {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .cards-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    max-width: 400px;
+  }
+  
+  .cards-grid::before {
+    display: none;
+  }
+
+  .app-container {
+    padding: 48px 16px 48px;
+  }
+
+  .app-header {
+    margin-bottom: 56px;
+  }
+
+  .app-title {
+    font-size: 2rem;
+  }
+
+  .app-subtitle {
+    font-size: 1rem;
+  }
+
+  .ai-card {
+    padding: 32px 20px 28px;
+  }
+}
